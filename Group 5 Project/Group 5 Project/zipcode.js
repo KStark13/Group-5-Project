@@ -1,5 +1,5 @@
 //fuction to put html to display
-function displayWeatherInfo() {
+function displayWeatherInfo(zipcode) {
 	var zipCodeSearch = $(this).attr("data-name");
 	var queryURL = "http://api.wunderground.com/api/a2bdd3389a6bb0c6/hourly/q/" + zipcode;
 //creating an ajax call for specific info
@@ -23,8 +23,9 @@ function displayWeatherInfo() {
 };
 
 //click fuction
-$("#zipcodeSearch").on("click", function(event)){
+$("#zipcodeSearch").on("click", function(event){
 	var zipcode = $("#zipcodeInput").val().trim();
-};
-//adding listener for zipcode
-$(document).on("click", ".zipcode" displayWeatherInfo);
+	console.log(zipcode);
+	displayWeatherInfo(zipcode);
+	return false;
+});
